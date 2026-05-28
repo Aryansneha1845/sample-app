@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: production-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: production
+      app: production-app
   template:
     metadata:
       labels:
-        app: production
+        app: production-app
     spec:
       containers:
-      - name: production
-        image: us-central1-docker.pkg.dev/qwiklabs-gcp-00-1e7bd809bcb5/my-repository/sample-app:v1.0
+      - name: production-container
+        image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-8054d8d17d36/my-repository/sample-app:v1.0
         ports:
         - containerPort: 8080
